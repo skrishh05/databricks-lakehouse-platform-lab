@@ -1,0 +1,28 @@
+{
+  "groups": {
+    "platform-admins": {
+      "workspace_access": true,
+      "cluster_create": true,
+      "cluster_manage": true,
+      "job_manage": true
+    },
+    "data-engineers": {
+      "workspace_access": true,
+      "cluster_create": false,
+      "cluster_manage": false,
+      "job_manage": true
+    },
+    "data-analysts": {
+      "workspace_access": true,
+      "cluster_create": false,
+      "cluster_manage": false,
+      "job_manage": false
+    }
+  },
+  "principles": [
+    "Least privilege",
+    "Role-based access control",
+    "Separate administrative and development responsibilities",
+    "Production access requires appropriate permissions"
+  ]
+}
