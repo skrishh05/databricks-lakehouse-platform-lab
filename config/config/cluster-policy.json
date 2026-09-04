@@ -1,0 +1,41 @@
+{
+  "name": "Platform Admin - Standard Cluster Policy",
+  "definition": {
+    "spark_version": {
+      "type": "allowlist",
+      "values": [
+        "13.3.x-scala2.12",
+        "14.3.x-scala2.12",
+        "15.4.x-scala2.12"
+      ]
+    },
+    "node_type_id": {
+      "type": "allowlist",
+      "values": [
+        "i3.xlarge",
+        "i3.2xlarge"
+      ]
+    },
+    "driver_node_type_id": {
+      "type": "allowlist",
+      "values": [
+        "i3.xlarge",
+        "i3.2xlarge"
+      ]
+    },
+    "num_workers": {
+      "type": "range",
+      "minValue": 1,
+      "maxValue": 8
+    },
+    "autotermination_minutes": {
+      "type": "range",
+      "minValue": 10,
+      "maxValue": 120
+    },
+    "enable_elastic_disk": {
+      "type": "fixed",
+      "value": true
+    }
+  }
+}
