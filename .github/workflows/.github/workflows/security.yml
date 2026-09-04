@@ -1,0 +1,36 @@
+name: Security Checks
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  security:
+    name: Secret and Configuration Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check for common secret files
+        run: |
+          if find . -type f \( -name "*.pem" -o -name "*.key" -o -name ".env" \) | grep -q .; then
+            echo "Potential secret file detected."
+            exit 1
+          fi
+
+      - name: Check Terraform files
+        run: |
+          terraform_files=$(find terraform -name "*.tf" | wc -l)
+          if [ "$terraform_files" -eq 0 ]; then
+            echo "No Terraform files found."
+            exit 1
+          fi
