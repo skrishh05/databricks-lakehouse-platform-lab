@@ -1,0 +1,23 @@
+{
+  "dev": {
+    "environment": "dev",
+    "min_workers": 1,
+    "max_workers": 4,
+    "autotermination_minutes": 30,
+    "purpose": "Development and testing"
+  },
+  "test": {
+    "environment": "test",
+    "min_workers": 1,
+    "max_workers": 6,
+    "autotermination_minutes": 30,
+    "purpose": "Integration and QA testing"
+  },
+  "prod": {
+    "environment": "prod",
+    "min_workers": 2,
+    "max_workers": 8,
+    "autotermination_minutes": 20,
+    "purpose": "Production workloads"
+  }
+}
